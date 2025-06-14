@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo - John Doe</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --dark-bg: #1a1a2e;
+            --light-text: #f0f0f0;
+            --muted-text: #a9a9b3;
+            --accent-color: #00c9a7;
+            --cv-card-bg: #fff;
+            --cv-text: #333;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            display: flex;
+        }
+
+        #sidebar {
+            width: 120px;
+            background-color: #11111a;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            padding-top: 20px;
+            z-index: 1000;
+        }
+        #sidebar a { padding: 15px 8px; text-align: center; font-size: 12px; color: var(--muted-text); display: block; text-decoration: none; transition: background-color 0.3s; }
+        #sidebar a i { font-size: 28px; display: block; margin-bottom: 5px; }
+        #sidebar a:hover, #sidebar a.active { background-color: var(--accent-color); color: white; }
+
+        #main-content {
+            margin-left: 120px;
+            width: calc(100% - 120px);
+            padding: 2rem;
+        }
+
+        /* --- Estilos do CV --- */
+        .cv-container { background-color: #e9ecef; border-radius: 8px; }
+        .left-column { background-color: var(--accent-color); color: white; }
+        .left-column .avatar { width: 150px; height: 150px; object-fit: cover; border: 4px solid white; }
+        .left-column h2 { font-weight: 700; }
+        .left-column .icon { color: rgba(255,255,255,0.8); }
+        .progress-bar { background-color: var(--dark-bg); }
+        .right-column .card { border: none; }
+        .right-column .card-title { color: var(--accent-color); font-weight: 700; }
+        .right-column .date { color: #6c757d; }
+        
+        /* --- Responsividade --- */
+        @media (max-width: 992px) {
+            body { display: block; }
+            #sidebar { display: none; }
+            #main-content { margin-left: 0; width: 100%; padding: 1rem; }
+        }
+        
+        /* --- LÓGICA DE IMPRESSÃO --- */
+        @media print {
+            body {
+                background-color: #fff !important;
+                display: block !important;
+            }
+
+            #sidebar, #download-section {
+                display: none !important;
+            }
+            #main-content {
+                margin-left: 0 !important;
+                width: 100% !important;
+                padding: 0 !important;
+            }
+
+            .cv-container {
+                box-shadow: none !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+            }
+
+            .left-column {
+                background-color: #f0f0f0 !important; 
+                color: #000 !important;
+            }
+
+            .left-column .icon, .left-column h2, .left-column p, .left-column h4 {
+                color: #000 !important;
+            }
+
+            .right-column {
+                color: #000 !important;
+            }
+
+            .progress {
+                border: 1px solid #ccc;
+            }
+
+            .progress-bar {
+                background-color: #555 !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="sidebar" class="d-none d-lg-block">
+        <a href="index.html#home"><i class="fa fa-home"></i><p>HOME</p></a>
+        <a href="index.html#about"><i class="fa fa-user"></i><p>SOBRE</p></a>
+        <a href="index.html#portfolio"><i class="fa fa-eye"></i><p>PORTFOLIO</p></a>
+        <a href="cv.html" class="active" target="_blank"><i class="fa fa-file-alt"></i><p>MEU CV</p></a>
+        <a href="index.html#contact"><i class="fa fa-envelope"></i><p>CONTATO</p></a>
+    </nav>
+    
+    <div id="main-content">
+        <div class="container-fluid cv-container p-lg-5 p-3">
+            <div class="row">
+                <aside class="col-lg-4 left-column p-4 rounded-start">
+                    <div class="text-center">
+                        <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=500&q=80" alt="Avatar" class="rounded-circle avatar mb-3">
+                        <h2 class="mb-1">John Doe</h2>
+                        <p class="lead">Fotógrafo & Web Designer</p>
+                    </div>
+                    <hr class="my-4" style="border-color: rgba(255,255,255,0.5);">
+                    <div>
+                        <h4 class="mb-3">CONTATO</h4>
+                        <p><i class="fa fa-map-marker-alt fa-fw me-2 icon"></i>São Paulo, Brasil</p>
+                        <p><i class="fa fa-phone fa-fw me-2 icon"></i>+55 (11) 91234-5678</p>
+                        <p><i class="fa fa-envelope fa-fw me-2 icon"></i>contato@johndoe.com</p>
+                        <p><i class="fa fa-globe fa-fw me-2 icon"></i>www.johndoe.com</p>
+                    </div>
+                     <hr class="my-4" style="border-color: rgba(255,255,255,0.5);">
+                     <div>
+                        <h4 class="mb-3">HABILIDADES</h4>
+                        <p>Adobe Creative Suite</p>
+                        <div class="progress mb-3 bg-light" style="height: 20px;"><div class="progress-bar" style="width: 90%;"></div></div>
+                        <p>Web Development</p>
+                        <div class="progress mb-3 bg-light" style="height: 20px;"><div class="progress-bar" style="width: 85%;"></div></div>
+                        <p>UI/UX Design</p>
+                        <div class="progress mb-3 bg-light" style="height: 20px;"><div class="progress-bar" style="width: 75%;"></div></div>
+                    </div>
+                </aside>
+
+                <main class="col-lg-8 p-4 bg-white rounded-end">
+                    <section class="mb-5">
+                        <h3 class="mb-4 card-title"><i class="fa fa-briefcase fa-fw me-2"></i>Experiência Profissional</h3>
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <h5>Web Designer Sênior</h5>
+                                <p class="date">Janeiro 2018 - Presente | Tech Solutions Inc.</p>
+                                <p class="text-secondary">Lidero projetos de design de interface e experiência do usuário para clientes globais, transformando requisitos complexos em designs intuitivos e responsivos.</p>
+                            </div>
+                        </div>
+                         <div class="card mb-4">
+                            <div class="card-body">
+                                <h5>Fotógrafo Freelancer</h5>
+                                <p class="date">Junho 2015 - Presente | Autônomo</p>
+                                <p class="text-secondary">Especializado em retratos e fotografia de eventos. Colaboro com clientes para capturar momentos autênticos e criar narrativas visuais impactantes.</p>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section>
+                        <h3 class="mb-4 card-title"><i class="fa fa-graduation-cap fa-fw me-2"></i>Educação</h3>
+                         <div class="card mb-4">
+                            <div class="card-body">
+                                <h5>Bacharelado em Design Gráfico</h5>
+                                <p class="date">2011 - 2015 | Universidade de Belas Artes</p>
+                                <p class="text-secondary">Estudos aprofundados em tipografia, teoria das cores, e design digital.</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="text-center mt-5" id="download-section">
+                        <button class="btn btn-lg" style="background-color: var(--accent-color); color: white;" onclick="window.print()">
+                            <i class="fa fa-download me-2"></i> Baixar meu CV (PDF)
+                        </button>
+                    </section>
+                </main>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
