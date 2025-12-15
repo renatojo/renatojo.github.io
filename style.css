@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(223, 227, 235);
+}
+
+header {
+    background-color: rgb(156, 197, 235);
+    border-radius: 5px;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    height: 4rem;
+}
+
+nav a {
+    padding: 0px 50px 0px 0px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+#home {
+    padding: 0px 50px 0px 20px;
+}
+
+section {
+    background-color: aliceblue;
+    border-radius: 5px;
+}
